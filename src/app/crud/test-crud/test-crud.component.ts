@@ -38,20 +38,22 @@ export class TestCrudComponent implements OnInit {
       email: form.value.email,
       message: form.value.message,
     };
-    // this._userService
-    //   .postUser(user)
-    //   .pipe(
-    //     map((response: any) => {
-    //       console.log('response ', response);
-    //       return response;
-    //     })
-    //   )
-    //   .subscribe({
-    //     next: (v) => console.log(v),
-    //     error: (e) => console.error(e),
-    //     complete: () => console.info('complete'),
-    //   });
-    this.users$ = this._userService.postUser(user);
+    this._userService
+      .postUser(user)
+      .pipe(
+        map((response: any) => {
+          console.log('response ', response);
+          return response;
+        })
+      )
+      .subscribe({
+        next: (v) => console.log(v),
+        error: (e) => console.error(e),
+        complete: () => { console.info('complete')
+        this.myForm.reset();
+      },
+      });
+    // this.users$ = this._userService.postUser(user);
     console.log('users -- ', this.users$);
   }
 }
