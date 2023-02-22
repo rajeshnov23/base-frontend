@@ -17,7 +17,7 @@ export class TestCrudComponent implements OnInit {
   myForm!: FormGroup;
   public users$!: Observable<any[]>;
 
-  constructor(private fb: FormBuilder, private _userService: UserService) {}
+  constructor(private fb: FormBuilder, private _userService: UserService) { }
 
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -33,27 +33,31 @@ export class TestCrudComponent implements OnInit {
     console.log('Name', form.value.name);
     console.log('Email', form.value.email);
     console.log('Message', form.value.message);
-    const user = {
-      name: form.value.name,
-      email: form.value.email,
-      message: form.value.message,
-    };
-    this._userService
-      .postUser(user)
-      .pipe(
-        map((response: any) => {
-          console.log('response ', response);
-          return response;
-        })
-      )
-      .subscribe({
-        next: (v) => console.log(v),
-        error: (e) => console.error(e),
-        complete: () => { console.info('complete')
-        this.myForm.reset();
-      },
-      });
-    // this.users$ = this._userService.postUser(user);
-    console.log('users -- ', this.users$);
+    if (form.valid) {
+      const user = {
+        name: form.value.name,
+        email: form.value.email,
+        message: form.value.message,
+      };
+      this._userService
+        .postUser(user)
+        .pipe(
+          map((response: any) => {
+            console.log('response ', response);
+            return response;
+          })
+        )
+        .subscribe({
+          next: (v) => console.log(v),
+          error: (e) => console.error(e),
+          complete: () => {
+            console.info('complete')
+            this.myForm.reset();
+          },
+        });
+      // this.users$ = this._userService.postUser(user);
+      // console.log('users -- ', this.users$);
+    }
+
   }
 }

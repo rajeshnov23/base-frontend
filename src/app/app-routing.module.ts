@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'Post',
     loadChildren: () => import('./post/post.module').then((m) => m.PostModule),
   },
+  {
+    path: 'Categories',
+    loadChildren: () => import('./category/category.module').then((m) => m.CategoryModule),
+  },
 ];
 
 @NgModule({
