@@ -1,0 +1,98 @@
+<!-- main -->
+
+<div class="main-w3layouts wrapper bodyStyle">
+	<h1>Creative SignUp Form</h1>
+	<div class="main-agileinfo">
+		<div class="agileits-top">
+			<div class="container">
+				<form [formGroup]="regForm" (ngSubmit)="onSubmit(regForm)">
+					<div class="row">
+						<div class="col-md-12 mb-3">
+							<input class="text" type="text" name="username" formControlName="username"
+								placeholder="Username" required="">
+						</div>
+
+					</div>
+					<div class="alert alert-danger col-md-12" role="alert"
+						*ngIf="regForm.get('username')!.invalid && (regForm.get('username')!.dirty || regForm.get('username')!.touched)">
+						Please provide a username.
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 mb-3">
+							<input class="text" type="email" name="email" formControlName="email"
+								placeholder="Email" required="">
+						</div>
+
+					</div>
+					<div class="alert alert-danger col-md-12" role="alert"
+						*ngIf="regForm.get('email')!.invalid && (regForm.get('email')!.dirty || regForm.get('email')!.touched)">
+						Please provide a valid email address.
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 mb-3">
+							<input class="text" type="password" name="password" formControlName="password"
+								placeholder="Password" required="">
+						</div>
+
+					</div>
+					<div class="alert alert-danger col-md-12" role="alert"
+						*ngIf="regForm.get('password')!.invalid && (regForm.get('password')!.dirty || regForm.get('password')!.touched)">
+						Please provide a valid password.
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 mb-3">
+							<input class="text" type="password" name="password_confirm"
+							formControlName="password_confirm" placeholder="Confirm Password" required="">
+						</div>
+
+					</div>
+					<div class="alert alert-danger col-md-12" role="alert"
+						*ngIf="regForm.get('password_confirm')!.invalid && (regForm.get('password_confirm')!.dirty || regForm.get('password_confirm')!.touched)">
+						Please provide a valid password.
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 mb-3">
+							<div class="wthree-text">
+								<label class="anim">
+									<input type="checkbox" class="checkbox" required="">
+									<span style="margin-left:4px">I Agree To The Terms & Conditions</span>
+								</label>
+								<div class="clear"> </div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 mb-3">
+							<input type="submit" value="SIGNUP">
+						</div>
+
+					</div>
+				</form>
+			</div>
+			<p>Don't have an Account? <a href="#"> Login Now!</a></p>
+		</div>
+	</div>
+	<!-- copyright -->
+	<div class="colorlibcopy-agile">
+
+	</div>
+	<!-- //copyright -->
+	<ul class="colorlib-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
