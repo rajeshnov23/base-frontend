@@ -1,0 +1,101 @@
+<!-- main -->
+
+<div class="main-w3layouts wrapper bodyStyle">
+  <h1>Login Form</h1>
+
+  <div class="main-agileinfo">
+    <div class="agileits-top">
+      <div class="container">
+        <div
+          class="alert alert-danger custom-error col-md-12"
+          role="alert"
+          *ngIf="serviceErrorFlag"
+        >
+          {{ serviceError }}
+        </div>
+        <form [formGroup]="regForm" (ngSubmit)="onSubmit(regForm)">
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <input
+                class="text"
+                type="text"
+                name="username"
+                formControlName="username"
+                placeholder="Username"
+                required=""
+              />
+            </div>
+          </div>
+          <div
+            class="alert alert-danger custom-error col-md-12"
+            role="alert"
+            *ngIf="
+              regForm.get('username')!.invalid &&
+              (regForm.get('username')!.dirty ||
+                regForm.get('username')!.touched)
+            "
+          >
+            Please provide a valid username.
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <input
+                class="text"
+                type="password"
+                name="password"
+                formControlName="password"
+                placeholder="Password"
+                required=""
+              />
+            </div>
+          </div>
+          <div
+            class="alert alert-danger custom-error col-md-12"
+            role="alert"
+            *ngIf="
+              regForm.get('password')!.invalid &&
+              (regForm.get('password')!.dirty ||
+                regForm.get('password')!.touched)
+            "
+          >
+            Please provide a valid password.
+          </div>
+
+
+
+
+
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <button
+                type="submit"
+                [ngClass]="{ 'disabled-button': !regForm.valid }"
+                [disabled]="!regForm.valid"
+              >
+                SIGNUP
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>Don't have an Account? <a routerLink="/Register"> Register Now!</a></p>
+    </div>
+  </div>
+  <!-- copyright -->
+  <div class="colorlibcopy-agile"></div>
+  <!-- //copyright -->
+  <ul class="colorlib-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
